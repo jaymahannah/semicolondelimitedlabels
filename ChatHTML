@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Semicolon-Delimited Text to Labels</title>
+</head>
+<body>
+	<label for="input">Enter semicolon-delimited text:</label>
+	<input type="text" id="input" name="input"><br><br>
+	<button onclick="convertToLabels()">Convert to Labels</button><br><br>
+	<div id="output"></div>
+	
+	<script>
+		function convertToLabels() {
+			var inputText = document.getElementById("input").value;
+			var labels = inputText.split(";");
+			var outputDiv = document.getElementById("output");
+			outputDiv.innerHTML = "";
+			for (var i = 0; i < labels.length; i++) {
+				var label = document.createElement("label");
+				label.innerHTML = labels[i];
+				outputDiv.appendChild(label);
+				outputDiv.appendChild(document.createElement("br"));
+			}
+		}
+	</script>
+</body>
+</html>
